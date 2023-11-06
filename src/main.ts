@@ -178,7 +178,8 @@ export default class PasteImageRenamePlugin extends Plugin {
 		// in case fileManager.renameFile may not update the internal link in the active file,
 		// we manually replace the current line by manipulating the editor
 
-		const newLinkText = this.app.fileManager.generateMarkdownLink(file, sourcePath)
+		// const newLinkText = this.app.fileManager.generateMarkdownLink(file, sourcePath)
+		const newLinkText = this.app.fileManager.generateMarkdownLink(file, sourcePath).replace(file.name, newPath)
 		debugLog('replace text', linkText, newLinkText)
 
 		const editor = this.getActiveEditor()
